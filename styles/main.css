@@ -1,0 +1,22 @@
+.custom-nav {
+    background-color: #e6bfaa;
+    /* top, right, bottom, left */
+    padding: 10px 5px 10px 5px;
+    font-family: Poppins;
+}
+ 
+.nav-item .nav-link  {
+    color: #a44a3f;
+}
+
+.nav-item:hover .nav-link {
+    color: #772e25;
+}
+
+.nav-underline .nav-link.active {
+    color: currentColor;
+}
+
+#webtitle {
+    padding-left: 5px;
+}
