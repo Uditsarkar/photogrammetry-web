@@ -22,6 +22,10 @@ body {
     color: currentColor;
 } */
 
+a {
+    cursor: pointer;
+}
+
 #webtitle {
     padding-left: 5px;
 }

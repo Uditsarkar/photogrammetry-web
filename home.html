@@ -8,8 +8,6 @@
         <!-- JS CDN -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
         <link rel="stylesheet" href="styles/main.css" type="text/css">
-        <!-- Import script -->
-        <script src="scripts/main.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-sm fixed-top bg-dark" data-bs-theme="dark" id="main-navbar">
@@ -24,13 +22,13 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">DTM</a>
+                            <a class="nav-link active" aria-current="page" id="landing">DTM</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Placeholder1</a>
+                            <a class="nav-link" id="firststep">FirstStep</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About us</a>
+                            <a class="nav-link" id="aboutus">About us</a>
                         </li>
                     </ul>
                 </div>
@@ -56,12 +54,14 @@
                 </div>
             </div>
         </div>-->
-        <div class="container-fluid main-content">
+        <!-- First page -->
+        <div class="container-fluid main-content" id="first-page">
             <p class="text-center" id="heading"><b>Welcome to our website!</b></p>
             <p class="text-center" style="color: white;">(scroll down to explore)</p>
             <div class="scroll"></div>
         </div>
-        <div class="main-content">
+        <!-- Second page -->
+        <div class="main-content" id="second-page">
             <div class="container-fluid scroll-content">
                 <div class="row justify-content-center">
                     <div class="col-4 d-flex justify-content-end">
@@ -73,6 +73,22 @@
                 </div>
                 <div class="row justify-content-center">
                     <p style="color: white; text-align: center;">Random text</p>
+                </div>
+            </div>
+        </div>
+        <!-- Third page -->
+        <div class="main-content" id="third-page">
+            <div class="container-fluid scroll-content">
+                <div class="row justify-content-center">
+                    <div class="col-4 d-flex justify-content-end">
+                        <img id="img1" src="images/magnifier-svgrepo-com.svg">
+                    </div>
+                    <div class="col-6 align-self-center">
+                        <p id="heading"><b>About us</b></p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <p style="color: white; text-align: center;">Group members</p>
                 </div>
             </div>
         </div>
@@ -91,5 +107,7 @@
         <button type="button" class="btn btn-primary">Primary</button> -->
         <!-- JS CDN -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+        <!-- Import script after body is loaded -->
+        <script src="scripts/main.js"></script>
     </body>
 </html>
