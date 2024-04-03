@@ -11,6 +11,12 @@
         <!-- ol lib -->
         <link rel="stylesheet" href="https://gisedu.itc.utwente.nl/exercise/libraries/openlayers/v4.6.4/ol.css" type="text/css" />
         <script src="https://gisedu.itc.utwente.nl/exercise/libraries/openlayers/v4.6.4/ol.js"></script>
+        <!-- ol layer switcher-->
+        <link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@4.1.1/dist/ol-layerswitcher.css" />
+        <script src="https://unpkg.com/ol-layerswitcher@4.1.1"></script>
+        <!-- ol-ext -->
+        <link rel="stylesheet" href="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.css" />
+        <script type="text/javascript" src="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.js"></script>
     </head>
     <body onload="init()">
         <nav class="navbar navbar-expand-sm fixed-top bg-dark" data-bs-theme="dark" id="main-navbar">
@@ -25,13 +31,16 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" id="landing">DTM</a>
+                            <a class="nav-link active" aria-current="page" id="landing">Introduction</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="firststep">FirstStep</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="map">Map</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="acc">Accuracy assessment</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="aboutus">About us</a>
@@ -62,7 +71,7 @@
         </div>-->
         <!-- First page -->
         <div class="container-fluid main-content" id="first-page">
-            <p class="text-center" id="heading"><b>Welcome to our website!</b></p>
+            <p class="text-center heading"><b>Welcome to our website!</b></p>
             <p class="text-center" style="color: white;">(scroll down to explore)</p>
             <div class="scroll"></div>
         </div>
@@ -74,11 +83,11 @@
                         <img id="img1" src="images/magnifier-svgrepo-com.svg">
                     </div>
                     <div class="col-6 align-self-center">
-                        <p id="heading"><b>First step</b></p>
+                        <p class="heading"><b>First step</b></p>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <p style="color: white; text-align: center;">Random text</p>
+                    <p class="normal-text">Random text</p>
                 </div>
             </div>
         </div>
@@ -86,8 +95,57 @@
         <div class="main-content" id="map-page">
             <div class="container-fluid scroll-content">
                 <div class="row justify-content-center">
+                    <div class="col-sm">
+                        <p class="normal-text">LGN 2018 product</p>
+                    </div>
+                    <div class="col-sm">
+                        <p class="normal-text">Our classification product</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
                     <div class="col-sm" id="map1"></div>
                     <div class="col-sm" id="map2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Accuracy assessment page -->
+        <div class="main-content" id="acc-page">
+            <div class="container-fluid scroll-content">
+                <div class="row justify-content-center">
+                    <p class="text-center heading">Accurracy assessment</p>
+                </div>
+                <div class="table-responsive-sm">
+                    <table class="table table-bordered normal-text">
+                        <thead>
+                            <tr>
+                                <!-- <th scope="col">#</th> -->
+                                <th scope="col">Product</th>
+                                <th scope="col">Accuracy</th>
+                                <th scope="col">F1 score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <!-- <th scope="row">1</th> -->
+                                <td>SVM</td>
+                                <td>...</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <!-- <th scope="row">2</th> -->
+                                <td>MLE</td>
+                                <td>...</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <!-- <th scope="row">3</th> -->
+                                <!-- <td colspan="2">Larry the Bird</td> -->
+                                <td>LGN (existing product)</td>
+                                <td>...</td>
+                                <td>...</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -99,7 +157,7 @@
                         <img id="img1" src="images/magnifier-svgrepo-com.svg">
                     </div>
                     <div class="col-6 align-self-center">
-                        <p id="heading"><b>About us</b></p>
+                        <p class="heading"><b>About us</b></p>
                     </div>
                 </div>
                 <div class="row justify-content-center">
