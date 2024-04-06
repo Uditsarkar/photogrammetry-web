@@ -3,6 +3,15 @@ body {
     font-family: Poppins;
 }
 
+p {
+    margin-bottom: 1.5rem;
+}
+
+figure {
+    display: inline-block;
+    text-align: center;
+}
+
 /* nav customization */
 .custom-nav {
     background-color: #e6bfaa;
@@ -47,6 +56,19 @@ a {
     font-size: calc(1em + 0.5vw);
 }
 
+.normal-text-small {
+    color: white; 
+    text-align: left;
+    font-size: calc(0.8em + 0.5vw);
+    margin: 10px 10px 10px 10px;
+}
+
+.img-caption {
+    color: white; 
+    text-align: center;
+    font-size: calc(0.8em + 0.5vw);
+}
+
 .heading {
     /* dynamic font size based on viewport size (need to check more) */
     font-size: calc(2em + 2vw);
@@ -58,11 +80,31 @@ a {
     color: black;
 }
 
+.vl {
+    border-left: 2px solid #ddd; /* Adjust color and width as needed */
+    height: 45svh; /* Set height to 50% viewport height for responsiveness */
+    position: absolute; /* Position the line on the page */
+    left: 50%; /* Center the line horizontally */
+    transform: translateX(-50%); /* Offset the line to compensate for half border width */
+}
+
+.logo-img {
+    width: 70%; /* Scales the image to fit container width */
+    height: auto; /* Maintains image aspect ratio */
+    max-width: 90px; /* Optional: Set a maximum width to prevent excessive scaling */
+    margin: 10px 10px 10px 10px;
+}
+
 #img1 {
     width: 90px;
     height: 90px;
     margin: 10px 10px 10px 10px;
     align-items: center;
+}
+
+#web-arch-img {
+    width: 80%;
+    height: 80%;
 }
 
 #map1 {
@@ -73,13 +115,28 @@ a {
     height: 60svh;
 }
 
+.rectangle {
+    width: 80%;
+    height: 8svh;
+    margin: 10px 10px 10px 30px;
+    /* line-height: 90px; */
+    /* border-radius: 20%; */
+    font-size: 1.3rem;
+    color: #000;
+    text-align: center;
+    background: #e0aeff;
+    display: flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center;
+}
+
 /* animation */
 .scroll-content {
     scale: .8;
     opacity: 0;
     animation: fade-in linear forwards;
     animation-timeline: view();
-    animation-range: cover 10% contain 50%;
+    animation-range: cover 10% contain 40%;
 }
 @keyframes fade-in {
     from {

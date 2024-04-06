@@ -17,9 +17,12 @@
         <!-- ol-ext -->
         <link rel="stylesheet" href="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.css" />
         <script type="text/javascript" src="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.js"></script>
+        <!-- d3 lib -->
+        <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
+        <script src="https://unpkg.com/scrollama"></script>
     </head>
     <body onload="init()">
-        <nav class="navbar navbar-expand-sm fixed-top bg-dark" data-bs-theme="dark" id="main-navbar">
+        <nav class="navbar navbar-expand-md fixed-top bg-dark" data-bs-theme="dark" id="main-navbar">
             <!-- Navbar content -->
             <!-- justify-content-end need to be used with flex body like container-fluid -->
             <div class="container-fluid">
@@ -91,9 +94,126 @@
                 </div>
             </div>
         </div>
+        <!-- Web architecture page -->
+        <div class="main-content" id="web-arch-page">
+            <div class="container-fluid scroll-content">
+                <div class="row justify-content-center">
+                    <p class="text-center heading">Web architecture</p>
+                </div>
+                <div class="row justify-content-center">
+                    <img id="web-arch-img" src="images/web_architecture.png">
+                </div>
+                <!--<div class="row justify-content-center">
+                    <p class="normal-text">Random text</p>
+                </div>-->
+            </div>
+        </div>
+        <!-- Tools page -->
+        <div class="main-content" id="tool-page">
+            <div class="container-fluid scroll-content">
+                <div class="row justify-content-center">
+                    <p class="text-center heading">Tools</p>
+                </div>
+                <div class="container-fluid text-center">
+                     <div class="vl"></div>
+                    <div class="row justify-content-center">
+                        <div class="col-sm justify-content-center">
+                            <div class="row justify-content-center">
+                                <p class="normal-text no-margin-text"><b>Web application</b></p>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-sm">
+                                    <figure>
+                                        <figcaption class="img-caption">HTML</figcaption>
+                                        <img class="logo-img" src="images/html.png">
+                                    </figure>
+                                    <figure>
+                                        <figcaption class="img-caption">CSS</figcaption>
+                                        <img class="logo-img" src="images/css.png">
+                                    </figure>
+                                    <figure>
+                                        <figcaption class="img-caption">JS</figcaption>
+                                        <img class="logo-img" src="images/js.png">
+                                    </figure>
+                                    <figure>
+                                        <figcaption class="img-caption">Bootstrap</figcaption>
+                                        <img class="logo-img" src="images/bootstrap.png">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="normal-text-small">We use HTML, CSS, Javascript, and Bootstrap to develop this web application.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm justify-content-center">
+                            <div class="row justify-content-center">
+                                <p class="normal-text no-margin-text"><b>Photogrammetry</b></p>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-sm">
+                                    <figure>
+                                        <figcaption class="img-caption">ENVI</figcaption>
+                                        <img class="logo-img" src="images/envi.png">
+                                    </figure>
+                                    <figure>
+                                        <figcaption class="img-caption">QGIS</figcaption>
+                                        <img class="logo-img" src="images/qgis.png">
+                                    </figure>
+                                    <figure>
+                                        <figcaption class="img-caption">ArcGIS Pro</figcaption>
+                                        <img class="logo-img" src="images/arcgis_pro.png">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="normal-text-small">To produce Photogrammetry product (Land cover classification), we use ENVI to do the classification. 
+                                    ArcGIS Pro was used to re-classify the existing land use classification product and QGIS is used to compress rasters and assign CRS to rasters
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Flow chart -->
+        <div class="main-content" id="flowchart-page">
+            <div class="container-fluid scroll-content overflow-y-auto">
+                <div class="row justify-content-center">
+                    <p class="text-center heading">Workflow</p>
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-sm-5 justify-content-center">
+                        <div class="row justify-content-center">
+                            <div class="rectangle"><b>Collect and Explore data</b></div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="rectangle"><b>Collect training and testing set</b></div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="rectangle"><b>Classification</b></div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="rectangle"><b>Output Product</b></div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="rectangle"><b>Accuracy assessment</b></div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="rectangle"><b>Uncertainty in our product</b></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 d-flex justify-content-center">
+                        <img style="width: 30svw; height: 70svh; align-items: center;" src="images/accessibility analysis.png">
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Map page -->
         <div class="main-content" id="map-page">
-            <div class="container-fluid scroll-content">
+            <div class="container-fluid scroll-content overflow-y-auto">
+                <div class="row justify-content-center">
+                    <p class="text-center heading">Existing product and our product</p>
+                </div>
                 <div class="row justify-content-center">
                     <div class="col-sm">
                         <p class="normal-text">LGN 2018 product</p>
@@ -114,7 +234,7 @@
                 <div class="row justify-content-center">
                     <p class="text-center heading">Accurracy assessment</p>
                 </div>
-                <div class="table-responsive-sm">
+                <div class="table-responsive-sm mx-md-5">
                     <table class="table table-bordered normal-text">
                         <thead>
                             <tr>
@@ -128,13 +248,13 @@
                             <tr>
                                 <!-- <th scope="row">1</th> -->
                                 <td>SVM</td>
-                                <td>...</td>
+                                <td>84.35%</td>
                                 <td>...</td>
                             </tr>
                             <tr>
                                 <!-- <th scope="row">2</th> -->
                                 <td>MLE</td>
-                                <td>...</td>
+                                <td>75.44% </td>
                                 <td>...</td>
                             </tr>
                             <tr>
