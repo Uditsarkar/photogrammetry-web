@@ -143,9 +143,9 @@ function init() {
         ratio: 1,
         projection: 'EPSG:3857'
     });
-    var mleSource = new ol.source.ImageWMS({
+    var mlcSource = new ol.source.ImageWMS({
         url: 'https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s3234223/project/config/configWMS.map&',
-        params: {'LAYERS': 'mle_raster'},
+        params: {'LAYERS': 'mlc_raster'},
         ratio: 1,
         projection: 'EPSG:3857'
     });
@@ -157,9 +157,9 @@ function init() {
         source: svmSource,
         title: 'SVM classification'
     });
-    var mlePhoto = new ol.layer.Image({
-        source: mleSource,
-        title: 'MLE classification'
+    var mlcPhoto = new ol.layer.Image({
+        source: mlcSource,
+        title: 'MLC classification'
     });
     // const graphicUrl = wmsSource.getLegendUrl(resolution);
     // const img = document.getElementById('legend');
@@ -175,7 +175,7 @@ function init() {
     });
     const map2 = new ol.Map({
         target: 'map2',
-        layers: [osmLayer, mlePhoto, svmPhoto],
+        layers: [osmLayer, mlcPhoto, svmPhoto],
         view: mapView,
     });
 
@@ -198,7 +198,7 @@ function init() {
         margin: 3,
         maxWidth: 200
     });
-    var mleLegend = new ol.legend.Legend({ 
+    var mlcLegend = new ol.legend.Legend({ 
         title: 'Legend',
         margin: 3,
         maxWidth: 200
@@ -212,14 +212,14 @@ function init() {
         legend: svmLegend,
         collapsed: false
     });
-    var mleLegendCtrl = new ol.control.Legend({
-        legend: mleLegend,
+    var mlcLegendCtrl = new ol.control.Legend({
+        legend: mlcLegend,
         collapsed: false
     });
 
     map1.addControl(lgnLegendCtrl);
     map2.addControl(svmLegendCtrl);
-    map2.addControl(mleLegendCtrl);
+    map2.addControl(mlcLegendCtrl);
 
     // New legend associated with a layer
     var lgnLayerLegend = new ol.legend.Legend({
@@ -228,8 +228,8 @@ function init() {
     var svmLayerLegend = new ol.legend.Legend({
         layer: svmPhoto 
     });
-    var mleLayerLegend = new ol.legend.Legend({
-        layer: mlePhoto 
+    var mlcLayerLegend = new ol.legend.Legend({
+        layer: mlcPhoto 
     });
     lgnLayerLegend.addItem(new ol.legend.Image({
         title: 'Land cover classification',
@@ -239,11 +239,55 @@ function init() {
         title: 'Land cover classification',
         src: 'https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s3234223/project/config/configWMS.map&SERVICE=WMS&VERSION=1.3.0&SLD_VERSION=1.1.0&REQUEST=GetLegendGraphic&WIDTH=100&HEIGHT=100&FORMAT=image/png&LAYER=svm_raster'
     }));
-    mleLayerLegend.addItem(new ol.legend.Image({
+    mlcLayerLegend.addItem(new ol.legend.Image({
         title: 'Land cover classification',
-        src: 'https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s3234223/project/config/configWMS.map&SERVICE=WMS&VERSION=1.3.0&SLD_VERSION=1.1.0&REQUEST=GetLegendGraphic&WIDTH=100&HEIGHT=100&FORMAT=image/png&LAYER=mle_raster'
+        src: 'https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s3234223/project/config/configWMS.map&SERVICE=WMS&VERSION=1.3.0&SLD_VERSION=1.1.0&REQUEST=GetLegendGraphic&WIDTH=100&HEIGHT=100&FORMAT=image/png&LAYER=mlc_raster'
     }));
     lgnLegend.addItem(lgnLayerLegend);
     svmLegend.addItem(svmLayerLegend);
-    mleLegend.addItem(mleLayerLegend);
+    mlcLegend.addItem(mlcLayerLegend);
+
+    /* Button */
+    const container = document.querySelector("#wf-button-group");
+    const workflowBtns = container.querySelectorAll(".btn-rectangle");
+    workflowBtns.forEach(function(btn){
+        btn.addEventListener("click", function(e){
+            var btnId = btn.id;
+            console.log(btnId);
+            var pageId;
+            switch (btnId) {
+                case "collect-explore-btn":
+                    pageId = "explore-data-page";
+                    break;
+                case "train-test-btn":
+                    pageId = "train-test-data-page";
+                    break;
+                case "classification-btn":
+                    pageId = "classification-data-page";
+                    break;
+                case "output-btn":
+                    pageId = "map-page";
+                    break;
+                case "acc-btn":
+                    pageId = "acc-page";
+                    break;
+                case "uncertainty-btn":
+                    pageId = "uncertainty-page";
+                    break;
+              }
+            var element = document.getElementById(pageId);
+            element.scrollIntoView({
+                behavior: "smooth"
+            });
+        })
+    });
+}
+
+function zoom(e){
+    var zoomer = e.currentTarget;
+    e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+    e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+    x = offsetX/zoomer.offsetWidth*100
+    y = offsetY/zoomer.offsetHeight*100
+    zoomer.style.backgroundPosition = x + '% ' + y + '%';
 }
