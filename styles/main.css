@@ -11,6 +11,11 @@ p {
     margin-bottom: 1.5rem;
 }
 
+mark {
+    background-color: #ffc164;
+    color: black;
+}
+
 figure {
     display: inline-block;
     text-align: center;
@@ -82,12 +87,12 @@ a:link:active, a:visited:active {
 .img-caption {
     color: white; 
     text-align: center;
-    font-size: calc(0.8em + 0.5vw);
+    font-size: calc(0.7em + 0.5vw);
 }
 
 .heading {
     /* dynamic font size based on viewport size (need to check more) */
-    font-size: calc(2em + 2vw);
+    font-size: calc(1.5em + 2vw);
     color: white;
 }
 
@@ -113,6 +118,24 @@ a:link:active, a:visited:active {
 
 figure.content-fig {
     margin-bottom: 0;
+    margin: auto;
+}
+
+#mlc-img {
+    width: 60%;
+    height: 80%;
+    /* margin: 10px 10px 10px 10px; */
+    align-items: center;
+    object-fit: cover;
+}
+
+#svm-img {
+    width: 60%;
+    height: 80%;
+    /* margin: 10px 10px 10px 10px; */
+    align-items: center;
+    background-color: white;
+    object-fit: cover;
 }
 
 figure.workflow-fig {
@@ -127,12 +150,6 @@ figure.workflow-fig {
 #workflow-img:hover {
     opacity: 0;
 }
-
-/* figure.workflow-fig img {
-    transition: opacity .5s;
-    display: block;
-    width: 100%;
-} */
 
 #workflow-img {
     /* width: 40svw;  */
@@ -153,13 +170,6 @@ figure.workflow-fig {
 #web-arch-img {
     width: 80%;
     height: 80%;
-}
-
-#mlc-img {
-    width: 80%;
-    height: 80%;
-    margin: 10px 10px 10px 10px;
-    align-items: center;
 }
 
 #map1 {
@@ -249,7 +259,7 @@ figure.workflow-fig {
     opacity: 0;
     animation: fade-in linear forwards;
     animation-timeline: view();
-    animation-range: cover 10% contain 40%;
+    animation-range: cover 10% contain 30%;
 }
 @keyframes fade-in {
     from {

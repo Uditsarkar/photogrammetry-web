@@ -227,8 +227,51 @@
                 <div class="row justify-content-center">
                     <p class="text-center heading">Collect training and testing set</p>
                 </div>
-                <div class="row justify-content-center">
-                    <p style="color: white; text-align: center;">explanation</p>
+                <div class="row justify-content-center px-5">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="train-tab" data-bs-toggle="tab" data-bs-target="#train-set" type="button" role="tab" aria-controls="Training set" aria-selected="true">Training set</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="test-tab" data-bs-toggle="tab" data-bs-target="#test-set" type="button" role="tab" aria-controls="Test set" aria-selected="false">Test set</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="train-set" role="tabpanel" aria-labelledby="train-tab">
+                            <div class="row justify-content-center">
+                                <div class="col-sm justify-content-center">
+                                    <p class="normal-text-small">We collect the training set for <mark>4 classes</mark>:</p>
+                                    <ul class="normal-text-small">
+                                        <li>Built-up</li>
+                                        <li>Vegetation</li>
+                                        <li>Water</li>
+                                        <li>Bareland</li>
+                                    </ul>
+                                    <p class="normal-text-small">We collect around 3500 pixels for each class and we try to balance training set of each class.</p>
+                                </div>
+                                <div class="col-sm justify-content-center">
+                                    <p class="normal-text-small">Show map</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="test-set" role="tabpanel" aria-labelledby="test-tab">
+                            <div class="row justify-content-center">
+                                <div class="col-sm justify-content-center">
+                                    <p class="normal-text-small">We also collect the test set for <mark>4 classes</mark>:</p>
+                                    <ul class="normal-text-small">
+                                        <li>Built-up</li>
+                                        <li>Vegetation</li>
+                                        <li>Water</li>
+                                        <li>Bareland</li>
+                                    </ul>
+                                    <p class="normal-text-small">We collect around 500 pixels of each class for testing the model.</p>
+                                </div>
+                                <div class="col-sm justify-content-center">
+                                    <p class="normal-text-small">Show map</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -236,10 +279,10 @@
         <div class="main-content" id="classification-data-page">
             <div class="container-fluid scroll-content">
                 <div class="row justify-content-center">
-                    <p class="text-center heading">Classification</p>
+                    <p class="text-center heading my-n5">Classification</p>
                 </div>
-                <div class="row justify-content-center">
-                    <p class="text-center normal-text-small" style="margin-bottom: 3%;">To classify the land cover, we use <b>supervised classification</b> which are maximum likelihood (MLC) and support vector machine (SVM).</p>
+                <div class="row justify-content-center my-n5">
+                    <p class="text-center normal-text-small" style="margin-bottom: 2%;">To classify the land cover, we use <b>supervised classification</b> which are maximum likelihood (MLC) and support vector machine (SVM).</p>
                     <div class="col-sm justify-content-center">
                         <div class="row justify-content-center">
                             <p class="text-center normal-text">Maximum Likelihood Classification (MLC)</p>
@@ -247,12 +290,14 @@
                         <div class="row justify-content-center">
                             <figure class="content-fig">
                                 <img src="images/maxlikelihood.png" id="mlc-img">
-                                <figcaption class="img-caption">MLC (<a href="https://www.redalyc.org/journal/2570/257059542002/html/" target="_blank" rel="noopener noreferrer">source</a>)
+                                <figcaption class="img-caption" style="margin-top: 10px;">
+                                    MLC (<a href="https://www.redalyc.org/journal/2570/257059542002/html/" target="_blank" rel="noopener noreferrer">source</a>)
                                 </figcaption>
                             </figure>
                         </div>
                         <div class="row justify-content-center">
-                            <p class="normal-text-small">MLC aims to fit the normal distribution on the data (pixel value in our case) of each class. 
+                            <p class="normal-text-small px-5">
+                                MLC has assumption that data points (pixel value in our case) in each class is normally distributes and it aims to fit the normal distribution on the data of each class.
                                 From the above figure, the probability of <i><b>x</b></i>&nbsp;&nbsp;belonging to class B is higher than class A.</p>
                         </div>
                     </div>
@@ -261,7 +306,22 @@
                             <p class="text-center normal-text">Support Vector Machine (SVM)</p>
                         </div>
                         <div class="row justify-content-center">
-                            <p class="text-center normal-text-small">test2</p>
+                            <figure class="content-fig">
+                                <img src="images/svm1.png" id="svm-img">
+                                <figcaption class="img-caption" style="margin-top: 10px;">
+                                    SVM (<a href="https://www.javatpoint.com/machine-learning-support-vector-machine-algorithm" target="_blank" rel="noopener noreferrer">source</a>)
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="row justify-content-center">
+                            <p class="normal-text-small px-5">
+                                SVM aims to find the optimal hyperplane to separate different classes and maximized the margin. 
+                                If the data is non-linearly separable, we can use kernel functions to transform the data into higher-dimensional space. The example of of kernel functions are 
+                                Linear, Polynomial, Sigmoid, and Radial Basis Function (RBF).
+                            </p>
+                            <p class="normal-text-small px-5">
+                                For our classification, we use <mark>Radial Basis Function (RBF)</mark> kernel Type.
+                            </p>
                         </div>
                     </div>
                 </div>
