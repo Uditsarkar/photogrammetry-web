@@ -1,98 +1,46 @@
 function init() {
-    /* link menu with section */
-    var landingPage = document.getElementById('landing');
-    landingPage.addEventListener('click', function(){
-        const element = document.getElementById('first-page');
-        /* set menu in navbar correspond to the page in the view */
-        firststepPage.classList.remove('active');
-        firststepPage.setAttribute('aria-current', 'none');
-        aboutusPage.classList.remove('active');
-        aboutusPage.setAttribute('aria-current', 'none');
-        mapPage.classList.remove('active');
-        mapPage.setAttribute('aria-current', 'none');
-        accPage.classList.remove('active');
-        accPage.setAttribute('aria-current', 'none');
-        landingPage.classList.add('active');
-        landingPage.setAttribute('aria-current', 'page');
-        /* scroll to desired page */
-        element.scrollIntoView();
-        console.log('in1');
-    });
-    /* link menu with section */
-    var firststepPage = document.getElementById('firststep');
-    firststepPage.addEventListener('click', function(){
-        const element = document.getElementById('second-page');
-        /* set menu in navbar correspond to the page in the view */
-        landingPage.classList.remove('active');
-        landingPage.setAttribute('aria-current', 'none');
-        aboutusPage.removeAttribute('active');
-        aboutusPage.setAttribute('aria-current', 'none');
-        mapPage.classList.remove('active');
-        mapPage.setAttribute('aria-current', 'none');
-        accPage.classList.remove('active');
-        accPage.setAttribute('aria-current', 'none');
-        firststepPage.classList.add('active');
-        firststepPage.setAttribute('aria-current', 'page');
-        /* scroll to desired page */
-        element.scrollIntoView();
-        console.log('in2');
-    });
-    /* link menu with section */
-    var aboutusPage = document.getElementById('aboutus');
-    aboutusPage.addEventListener('click', function(){
-        const element = document.getElementById('third-page');
-        /* set menu in navbar correspond to the page in the view */
-        landingPage.classList.remove('active');
-        landingPage.setAttribute('aria-current', 'none');
-        firststepPage.classList.remove('active');
-        firststepPage.setAttribute('aria-current', 'none');
-        mapPage.classList.remove('active');
-        mapPage.setAttribute('aria-current', 'none');
-        accPage.classList.remove('active');
-        accPage.setAttribute('aria-current', 'none');
-        aboutusPage.classList.add('active');
-        aboutusPage.setAttribute('aria-current', 'page');
-        /* scroll to desired page */
-        element.scrollIntoView();
-        console.log('in3');
-    });
-    /* link menu with section */
-    var mapPage = document.getElementById('map');
-    mapPage.addEventListener('click', function(){
-        const element = document.getElementById('map-page');
-        /* set menu in navbar correspond to the page in the view */
-        landingPage.classList.remove('active');
-        landingPage.setAttribute('aria-current', 'none');
-        firststepPage.classList.remove('active');
-        firststepPage.setAttribute('aria-current', 'none');
-        aboutusPage.classList.remove('active');
-        aboutusPage.setAttribute('aria-current', 'none');
-        accPage.classList.remove('active');
-        accPage.setAttribute('aria-current', 'none');
-        mapPage.classList.add('active');
-        mapPage.setAttribute('aria-current', 'page');
-        /* scroll to desired page */
-        element.scrollIntoView();
-        console.log('in3');
-    });
-    /* link menu with section */
-    var accPage = document.getElementById('acc');
-    accPage.addEventListener('click', function(){
-        const element = document.getElementById('acc-page');
-        /* set menu in navbar correspond to the page in the view */
-        landingPage.classList.remove('active');
-        landingPage.setAttribute('aria-current', 'none');
-        firststepPage.classList.remove('active');
-        firststepPage.setAttribute('aria-current', 'none');
-        aboutusPage.classList.remove('active');
-        aboutusPage.setAttribute('aria-current', 'none');
-        mapPage.classList.remove('active');
-        mapPage.setAttribute('aria-current', 'none');
-        accPage.classList.add('active');
-        accPage.setAttribute('aria-current', 'page');
-        /* scroll to desired page */
-        element.scrollIntoView();
-        console.log('in3');
+    const menuBtns = document.querySelectorAll(".main-menu");
+    menuBtns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+            var btnId = btn.id;
+            var pageId;
+            switch (btnId) {
+                case "home":
+                    pageId = "first-page";
+                    break;
+                case "intro":
+                    pageId = "intro-page";
+                    break;
+                case "web-arch":
+                    pageId = "web-arch-page";
+                    break;
+                case "tools":
+                    pageId = "tools-page";
+                    break;
+                case "workflow":
+                    pageId = "flowchart-page";
+                    break;
+                case "map":
+                    pageId = "map-page";
+                    break;
+                case "aboutus":
+                    pageId = "aboutus-page";
+                    break;
+            }
+
+            var current = document.querySelector(".active");
+            // let s make sure there is a current active class
+            // before trying to remove it from DOM
+            if (current) {
+              // then use classList to add/remove class names
+              current.classList.remove('active');
+            }
+            this.classList.add('active');
+            var element = document.getElementById(pageId);
+            element.scrollIntoView({
+                behavior: "smooth"
+            });
+        })
     });
 
     /* Compare map */
@@ -103,34 +51,6 @@ function init() {
     });
     const enschedeCoord = [6.89583, 52.21833]; /*[lon, lat] format -> x=lon, y=lat*/
     let newCoord = new ol.proj.transform(enschedeCoord, 'EPSG:4326', 'EPSG:3857');
-    /* map2 */
-    /* show province of the vector */
-    // var provStyle = new ol.style.Style({
-    //     stroke: new ol.style.Stroke({
-    //         color: 'MediumPurple',
-    //         width: 2
-    //     }),
-    //     fill: new ol.style.Fill({
-    //         color: 'rgba(147, 112, 219, 0.2)'
-    //     })
-    // });
-    // var countryProvinces = new ol.layer.Vector({
-    //     source: new ol.source.Vector({
-    //         url: 'https://gisedu.itc.utwente.nl/student/s3234223/web-challenge/services/provinces.py?country=Thailand',
-    //         crossOrigin: 'anonymous',
-    //         format: new ol.format.GeoJSON({
-    //             defaultDataProjection: 'EPSG:4326',
-    //             projection: 'EPSG:3857'
-    //         })
-    //     }),
-    //     style: provStyle,
-    //     name: 'Country Provinces',
-    //     title: 'Provinces'
-    // });
-    // const extentCoord = [256629, 470713, 258005, 471880]; /*[lon, lat] format -> x=lon, y=lat*/
-    // let newExtentCoord = ol.proj.transformExtent(extentCoord, 'EPSG:28992', 'EPSG:3857'); // perform projection transform with given extent.
-    // let newExtentCoord = new ol.proj.transform(extentCoord, 'EPSG:28992', 'EPSG:3857');
-    // console.log(newExtentCoord);
     var lgnSource = new ol.source.ImageWMS({
         url: 'https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s3234223/project/config/configWMS.map&',
         params: {'LAYERS': 'lgn2018_raster'},
@@ -247,6 +167,32 @@ function init() {
     svmLegend.addItem(svmLayerLegend);
     mlcLegend.addItem(mlcLayerLegend);
 
+    /* train and test dataset */
+    // Load GeoJSON data and add to map
+    var geojsonUrlTrain = "https://gisedu.itc.utwente.nl/student/S3088944/train2.txt";
+    var geojsonUrlTest = "https://gisedu.itc.utwente.nl/student/S3088944/test_actual.txt";
+    const trianMap = new ol.Map({
+        target: 'train-map',
+        layers: [osmLayer],
+        view: mapView,
+    });
+    fetchGeoJson(geojsonUrlTrain, trianMap);
+    var test = document.getElementById("test-tab");
+    test.addEventListener("click", function(){
+        const testMap = new ol.Map({
+            target: 'test-map',
+            layers: [osmLayer],
+            view: mapView,
+        });
+        fetchGeoJson(geojsonUrlTest, testMap);
+    });
+    var train = document.getElementById("train-tab");
+    train.addEventListener("click", function(){
+        var div = document.getElementById('test-map');
+        while(div.firstChild){
+            div.removeChild(div.firstChild);
+        }
+    });
     /* Button */
     const container = document.querySelector("#wf-button-group");
     const workflowBtns = container.querySelectorAll(".btn-rectangle");
@@ -290,4 +236,39 @@ function zoom(e){
     x = offsetX/zoomer.offsetWidth*100
     y = offsetY/zoomer.offsetHeight*100
     zoomer.style.backgroundPosition = x + '% ' + y + '%';
+}
+
+function fetchGeoJson(geojsonUrl, map) {
+    var myStyle = new ol.style.Style({
+        stroke: new ol.style.Stroke({
+        color: '#000',
+        width: 10
+        })
+    });
+    fetch(geojsonUrl)
+    .then(response => response.json())
+    .then(data => {
+        var geojsonFormat = new ol.format.GeoJSON();
+        var features = geojsonFormat.readFeatures(data);
+        var vectorSource = new ol.source.Vector({
+            features: features
+        });
+        var vectorLayer = new ol.layer.Vector({
+            source: vectorSource,
+            style: myStyle
+        });
+        map.addLayer(vectorLayer);
+        // Function to zoom to the clicked feature
+        function zoomToFeature(feature) {
+            var extent = feature.getGeometry().getExtent();
+            map.getView().fit(extent, map.getSize());
+        }
+
+        // Click and zoom to feature
+        map.on('click', function(event) {
+            map.forEachFeatureAtPixel(event.pixel, function(feature) {
+                zoomToFeature(feature);
+            });
+        });
+    });
 }
