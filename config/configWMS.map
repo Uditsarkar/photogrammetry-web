@@ -98,7 +98,7 @@ MAP
         END
     END
     LAYER
-        NAME "mle_raster"
+        NAME "mlc_raster"
         TYPE RASTER
         STATUS ON
         DATA "ortho_maxlikelihood_georef.tif"

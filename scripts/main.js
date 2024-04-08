@@ -170,14 +170,15 @@ function init() {
 
     /* train and test dataset */
     // Load GeoJSON data and add to map
-    var geojsonUrlTrain = "https://gisedu.itc.utwente.nl/student/S3088944/train2.txt";
-    var geojsonUrlTest = "https://gisedu.itc.utwente.nl/student/S3088944/test_actual.txt";
+    var geojsonUrlTrain = "https://gisedu.itc.utwente.nl/student/S3234223/project/geojson/train_area_3857.txt";
+    var geojsonUrlTest = "https://gisedu.itc.utwente.nl/student/S3234223/project/geojson/test_area_3857.txt";
     let newCoordNl = new ol.proj.transform(enschedeCoord, 'EPSG:4326', 'EPSG:28992');
     // const mapViewNl = new ol.View({
     //     center: newCoordNl,
     //     zoom: 14,
     //     projection: 'EPSG:28992'
     // });
+
     const trianMap = new ol.Map({
         target: 'train-map',
         layers: [osmLayer],
