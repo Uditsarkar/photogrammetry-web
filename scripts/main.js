@@ -88,6 +88,7 @@ function init() {
         center: newCoord,
         zoom: 14,
     });
+    
     const map1 = new ol.Map({
         target: 'map1',
         layers: [osmLayer, lgnPhoto],
@@ -171,6 +172,12 @@ function init() {
     // Load GeoJSON data and add to map
     var geojsonUrlTrain = "https://gisedu.itc.utwente.nl/student/S3088944/train2.txt";
     var geojsonUrlTest = "https://gisedu.itc.utwente.nl/student/S3088944/test_actual.txt";
+    let newCoordNl = new ol.proj.transform(enschedeCoord, 'EPSG:4326', 'EPSG:28992');
+    // const mapViewNl = new ol.View({
+    //     center: newCoordNl,
+    //     zoom: 14,
+    //     projection: 'EPSG:28992'
+    // });
     const trianMap = new ol.Map({
         target: 'train-map',
         layers: [osmLayer],
@@ -253,6 +260,12 @@ function fetchGeoJson(geojsonUrl, map) {
         var vectorSource = new ol.source.Vector({
             features: features
         });
+        // var vectorSource = new ol.source.Vector({
+        //     features: (new ol.format.GeoJSON({
+        //         defaultDataProjection: 'EPSG:28992',
+        //         featureProjection: 'EPSG:3857'
+        //     })).readFeatures(data)
+        //   });
         var vectorLayer = new ol.layer.Vector({
             source: vectorSource,
             style: myStyle

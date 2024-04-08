@@ -79,6 +79,7 @@ a.src-link:link:active, a.src-link:visited:active {
     color: white; 
     text-align: center;
     font-size: calc(1em + 0.5vw);
+    text-justify: inter-word;
 }
 
 .normal-text-small {
@@ -86,17 +87,24 @@ a.src-link:link:active, a.src-link:visited:active {
     text-align: left;
     font-size: calc(0.7em + 0.5vw);
     margin: 10px 10px 10px 10px;
+    text-justify: inter-word;
 }
 
 .img-caption {
     color: white; 
     text-align: center;
-    font-size: calc(0.7em + 0.5vw);
+    font-size: calc(0.5em + 0.5vw);
+}
+
+.heading-home {
+    /* dynamic font size based on viewport size (need to check more) */
+    font-size: calc(1.5em + 2vw);
+    color: white;
 }
 
 .heading {
     /* dynamic font size based on viewport size (need to check more) */
-    font-size: calc(1.5em + 2vw);
+    font-size: calc(1em + 2vw);
     color: white;
 }
 
@@ -215,7 +223,7 @@ figure.workflow-fig {
     font-size: 1.3rem;
     color: #000;
     text-align: center;
-    background: #e0aeff;
+    background: #28ff71;
     display: flex;
     align-items: center; /* Vertical center alignment */
     justify-content: center;
@@ -230,7 +238,7 @@ figure.workflow-fig {
     font-size: 1.3rem;
     color: #000;
     text-align: center;
-    background: #d188ff;
+    background: #05fd58;
     display: flex;
     align-items: center; /* Vertical center alignment */
     justify-content: center;
@@ -245,7 +253,7 @@ figure.workflow-fig {
     font-size: 1.3rem;
     color: #000;
     text-align: center;
-    background: #e0aeff;
+    background: #05fd58;
     display: flex;
     align-items: center; /* Vertical center alignment */
     justify-content: center;
@@ -260,7 +268,7 @@ figure.workflow-fig {
     font-size: 1.3rem;
     color: #000;
     text-align: center;
-    background: #d188ff;
+    background: #05fd58;
     display: flex;
     align-items: center; /* Vertical center alignment */
     justify-content: center;
@@ -273,7 +281,7 @@ figure.workflow-fig {
     font-size: 1.3rem;
     color: #000;
     text-align: center;
-    background: #d188ff;
+    background: #05fd58;
     display: flex;
     align-items: center;
     justify-content: center;
