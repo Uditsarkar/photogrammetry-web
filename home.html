@@ -40,25 +40,25 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active main-menu" aria-current="page" id="home">Home</a>
+                            <a class="nav-link active main-menu first-page" aria-current="page" id="home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link main-menu" id="intro">Introduction</a>
+                            <a class="nav-link main-menu intro-page" id="intro">Introduction</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link main-menu" id="web-arch">Web Architecture</a>
+                            <a class="nav-link main-menu web-arch-page" id="web-arch">Web Architecture</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link main-menu" id="tools">Tools</a>
+                            <a class="nav-link main-menu tools-page" id="tools">Tools</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link main-menu" id="workflow">Workflow</a>
+                            <a class="nav-link main-menu flowchart-page" id="workflow">Workflow</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link main-menu" id="map">Product</a>
+                            <a class="nav-link main-menu map-page" id="map">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link main-menu" id="aboutus">About us</a>
+                            <a class="nav-link main-menu aboutus-page" id="aboutus">About us</a>
                         </li>
                     </ul>
                 </div>
@@ -98,8 +98,15 @@
                     <p class="text-center heading">Web architecture</p>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-sm d-flex justify-content-center">
-                        <img id="web-arch-img" src="images/web_architecture.png">
+                    <div class="col-sm-7 d-flex justify-content-center align-items-center">
+                        <img id="web-arch-img" src="images/web_architecture_new.jpg">
+                    </div>
+                    <div class="col-sm-5">
+                        <p class="normal-text text-start" style="margin: 10px;"><span class="span-highlight-text">Web services</span></p>
+                        <p class="normal-text-small">
+                            We use Open Web Services (OWS), e.g. WMS and WFS, which embraces OGC standards. In this project, we only use <mark>WMS (Web Map Service)</mark> 
+                            to provide a capability for requesting land cover classification map images (support PNG and JPEG format) by leveraging MapServer.
+                        </p>
                     </div>
                 </div>
                 <!--<div class="row justify-content-center">
@@ -165,8 +172,11 @@
                                 </div>
                             </div>
                             <div class="row px-5">
-                                <p class="normal-text-small">To produce Photogrammetry product (Land cover classification), we use ENVI to do the classification. 
-                                    ArcGIS Pro was used to re-classify the existing land use classification product and QGIS is used to compress rasters and assign CRS to rasters
+                                <p class="normal-text-small">To produce Photogrammetry product (Land cover classification), we use <mark>ENVI</mark> to do the classification since the tool is taught in this course and we are more familiar with. 
+                                    <mark>ArcGIS Pro</mark> was used to re-classify the existing land use classification product and <mark>QGIS</mark> is used to compress rasters and assign CRS to rasters.
+                                </p>
+                                <p class="normal-text-small">The <mark>reason that we use tools separately</mark> even all the tasks can be done within one software is we divide the task to each others and everyone has different preference and proficient in different softwares.
+                                    We also don't see that using different software to perform each tasks will lead to uncertainty in classification product.
                                 </p>
                             </div>
                         </div>
@@ -273,6 +283,12 @@
                             </p>-->
                         </div>
                     </div>
+                </div>
+                <div class="row justify-content-center">
+                    <p class="normal-text-small text-center">
+                        * The <mark>reason that we used LGN product to compare with classification product from orthophoto</mark> is we can't find classification product that has high spatial resolution
+                        as orthophoto and LGN is the highest spatial resolution classification product that we can find. Unfortunately, the LGN product is only available from year 2018.  
+                    </p>
                 </div>
             </div>
         </div>
@@ -435,8 +451,21 @@
                         </div>
                         <div class="row justify-content-center">
                             <p class="normal-text-small px-5">
-                                MLC has assumption that data points (pixel value in our case) in each class is normally distributes and it aims to fit the normal distribution on the data of each class.
-                                From the above figure, the probability of <i><b>x</b></i>&nbsp;&nbsp;belonging to class B is higher than class A.</p>
+                                MLC has assumption that data points (pixel value in our case) in each class and each band is normally distributed and calculates the probability of specific pixels belongs to each class.
+                                The pixel will be assigned to the class that has the highest probability value.
+                                From the above figure, the probability of <i><b>x</b></i>&nbsp;&nbsp;belonging to class B is higher than class A.
+                            </p>
+                            <p class="ref-text text-start mt-3 px-5" style="margin-bottom: 0;">
+                                Reference:
+                                <ul class="ref-text text-start px-5">
+                                    <li>
+                                        https://www.nv5geospatialsoftware.com/docs/MaximumLikelihood.html
+                                    </li>
+                                    <li>
+                                        https://www.redalyc.org/journal/2570/257059542002/html/
+                                    </li>
+                                </ul>
+                            </p>
                         </div>
                     </div>
                     <div class="col-sm justify-content-center">
@@ -459,6 +488,17 @@
                             </p>
                             <p class="normal-text-small px-5">
                                 For our classification, we use <mark>Radial Basis Function (RBF)</mark> kernel Type.
+                            </p>
+                            <p class="ref-text text-start mt-3 px-5" style="margin-bottom: 0;">
+                                Reference:
+                                <ul class="ref-text text-start px-5">
+                                    <li>
+                                        https://www.nv5geospatialsoftware.com/docs/SupportVectorMachine.html
+                                    </li>
+                                    <li>
+                                        https://www.redalyc.org/journal/2570/257059542002/html/
+                                    </li>
+                                </ul>
                             </p>
                         </div>
                     </div>
@@ -682,22 +722,21 @@
                     <p class="text-center heading">Uncertainty</p>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-sm-8">
-                       <ul class="normal-text-small" style="line-height: 170%">
+                    <div class="col-sm-10">
+                        <p class="text-start normal-text" style="margin-bottom: 0;">Uncertainty in our product</p>
+                        <ul class="normal-text-small" style="line-height: 170%">
+                            <li class="li-highlight">
+                                <span class="span-highlight-text">Variation of pixel values in class and between classes</span>: According to ROI separability report, some classes has low value of separability value such as Built-up area and Bare land.
+                                Moreover, standard deviation of Built-up area class in red, green, and blue band are high due to heterogeneous rooftops. These can lead to false classification.
+                            </li>
+                            <!--<li class="li-highlight">
+                                <span class="span-highlight-text">Limited Knowledge for Bare Land</span>: Spectral variability makes bare land classification challenging (limited ground knowledge).
+                            </li>-->
+                            <li class="li-highlight">
+                                <span class="span-highlight-text">Spectral resolution</span>: We only have RGB band in the image and some objects like water, bare land, and vegetation are hard to distinguish compared to NIR band.
+                            </li>
                             <li class="li-highlight">
                                 <span class="span-highlight-text">Shadow Effects</span>: Shadows caused misclassification especially in SVM.
-                            </li>
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Reference Data Merging</span>: Merged different classes in existing product.
-                            </li>
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Rural Area Classification</span>: Classified "other rural areas” as "built-up
-                            </li>
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Mixed Classes in LGN</span>: Mudflats merged into the "vegetation" class.
-                            </li>
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Limited Knowledge for Bare Land</span>: Spectral variability makes bare land classification challenging (limited ground knowledge).
                             </li>
                             <li class="li-highlight">
                                 <span class="span-highlight-text">Georeferencing Uncertainty</span>: Unknown accuracy of image georeferencing.
@@ -708,11 +747,17 @@
                             <li class="li-highlight">
                                 <span class="span-highlight-text">Computational Cost</span>: Increasing training data improves accuracy but increases processing time.
                             </li>
+                        </ul>
+                        <p class="text-start normal-text" style="margin-bottom: 0;">Uncertainty in existing product's accuracy assessment</p>
+                        <ul class="normal-text-small" style="line-height: 170%">
                             <li class="li-highlight">
-                                <span class="span-highlight-text">False Classification</span>: Heterogeneous rooftops can lead to false classification on other classes.
+                                <span class="span-highlight-text">Reference Data Merging</span>: Merged different classes in existing product.
                             </li>
                             <li class="li-highlight">
-                                <span class="span-highlight-text">Visible Bands</span>: We used RGB band, NIR band would have helped us distinguish vegetations.
+                                <span class="span-highlight-text">Rural Area Classification</span>: Classified "other rural areas” as "built-up
+                            </li>
+                            <li class="li-highlight">
+                                <span class="span-highlight-text">Mixed Classes in LGN</span>: Mudflats merged into the "vegetation" class.
                             </li>
                         </ul>
                     </div>

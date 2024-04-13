@@ -96,6 +96,12 @@ a.src-link:link:active, a.src-link:visited:active {
     font-size: calc(0.5em + 0.5vw);
 }
 
+.ref-text {
+    color: white; 
+    text-align: center;
+    font-size: calc(0.2em + 0.5vw);
+}
+
 .heading-home {
     /* dynamic font size based on viewport size (need to check more) */
     font-size: calc(1.5em + 2vw);
@@ -146,16 +152,16 @@ figure.content-fig {
 }
 
 #mlc-img {
-    width: 60%;
-    height: 80%;
+    width: 50%;
+    height: 70%;
     /* margin: 10px 10px 10px 10px; */
     align-items: center;
     object-fit: cover;
 }
 
 #svm-img {
-    width: 60%;
-    height: 80%;
+    width: 50%;
+    height: 70%;
     /* margin: 10px 10px 10px 10px; */
     align-items: center;
     background-color: white;
@@ -192,8 +198,8 @@ figure.workflow-fig {
 }
 
 #web-arch-img {
-    width: 75%;
-    height: 90%;
+    width: 80%;
+    height: 100%;
 }
 
 #train-map {
@@ -293,7 +299,7 @@ figure.workflow-fig {
     opacity: 0;
     animation: fade-in linear forwards;
     animation-timeline: view();
-    animation-range: cover 5% contain 20%;
+    animation-range: cover 5% contain 10%;
 }
 
 @keyframes fade-in {

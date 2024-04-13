@@ -69,6 +69,12 @@ function init() {
         ratio: 1,
         projection: 'EPSG:3857'
     });
+    var originalSource = new ol.source.ImageWMS({
+        url: 'https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s3234223/project/config/configWMS.map&',
+        params: {'LAYERS': 'original_raster'},
+        ratio: 1,
+        projection: 'EPSG:3857'
+    });
     var lgnPhoto = new ol.layer.Image({
         source: lgnSource,
         title: 'LGN 2018 classification'
@@ -81,6 +87,10 @@ function init() {
         source: mlcSource,
         title: 'MLC classification'
     });
+    var originalPhoto = new ol.layer.Image({
+        source: originalSource,
+        title: 'Original ortho photo'
+    });
     // const graphicUrl = wmsSource.getLegendUrl(resolution);
     // const img = document.getElementById('legend');
     // img.src = graphicUrl;
@@ -91,7 +101,7 @@ function init() {
     
     const map1 = new ol.Map({
         target: 'map1',
-        layers: [osmLayer, lgnPhoto],
+        layers: [osmLayer, originalPhoto, lgnPhoto],
         view: mapView,
     });
     const map2 = new ol.Map({
@@ -235,6 +245,33 @@ function init() {
             });
         })
     });
+
+    /* sync the navbar on scroll */
+    const sections = document.querySelectorAll(".main-content");
+    const navLi = document.querySelectorAll("nav .container-fluid #navbarToggler ul li a");
+    window.onscroll = () => {
+        var current = "";
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= sectionTop - 60) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLi.forEach((li) => {
+            li.classList.remove("active");
+            if (li.classList.contains(current)) {
+                li.classList.add("active");
+            }
+            if ((current === "explore-data-page")|(current === "train-test-data-page")|
+            (current === "classification-data-page")|(current === "acc-page")|(current === "uncertainty-page")) {
+                if (li.id === "workflow") {
+                    li.classList.add("active");
+                }
+            }
+        });
+    };  
 }
 
 function zoom(e){
