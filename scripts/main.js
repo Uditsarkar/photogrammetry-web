@@ -309,7 +309,8 @@ function fetchGeoJson(geojsonUrl, map) {
         //   });
         var vectorLayer = new ol.layer.Vector({
             source: vectorSource,
-            style: myStyle
+            style: myStyle,
+            title: 'polygon layer'
         });
         map.addLayer(vectorLayer);
         // Function to zoom to the clicked feature

@@ -19,7 +19,7 @@ MAP
             "wms_feature_info_mime_type" "text/plain"
             "wms_feature_info_mime_type" "text/html"
             "wms_server_version" "1.3.0"
-            "wms_formatlist" "image/png,image/gif,image/jpeg"
+            "wms_formatlist" "image/png,image/jpeg"
             "wms_format" "image/png"
         END #web metadata
     END #web
@@ -41,16 +41,14 @@ MAP
         TYPE RASTER
         STATUS ON
         DATA "lgn_4class_img.tif"
-        #MINSCALE 1000000
-        #METADATA
-        #    "ows_title" "enschede_raster"
-        #    "ows_extent" "256583.2000000000116415 470627.5999999999767169 258097.1000000000058208 471960.2999999999883585"
-        #END
-        #PROJECTION
-        #    "init=epsg:28992"
-        #END
-        #transparency 60%
-        #OPACITY 40
+        METADATA
+            "ows_title" "lgn2018_classification_raster"
+            "ows_extent" "256583.2000000000116415 470627.5999999999767169 258097.1000000000058208 471960.2999999999883585"
+        END
+        PROJECTION
+            "init=epsg:28992"
+        END
+        #legend
         CLASS
             NAME "Built-up Area"
             COLOR 254 0 0
@@ -69,16 +67,13 @@ MAP
         TYPE RASTER
         STATUS ON
         DATA "ortho_svm_georef.tif"
-        #MINSCALE 1000000
-        #METADATA
-        #    "ows_title" "enschede_raster"
-        #    "ows_extent" "256583.2000000000116415 470627.5999999999767169 258097.1000000000058208 471960.2999999999883585"
-        #END
-        #PROJECTION
-        #    "init=epsg:28992"
-        #END
-        #transparency 60%
-        #OPACITY 40
+        METADATA
+            "ows_title" "svm_classification_raster"
+            "ows_extent" "256583.2000000000116415 470627.5999999999767169 258097.1000000000058208 471960.2999999999883585"
+        END
+        PROJECTION
+            "init=epsg:28992"
+        END
         #legend
         CLASS
             NAME "Built-up Area"
@@ -102,16 +97,13 @@ MAP
         TYPE RASTER
         STATUS ON
         DATA "ortho_maxlikelihood_georef.tif"
-        #MINSCALE 1000000
-        #METADATA
-        #    "ows_title" "enschede_raster"
-        #    "ows_extent" "256583.2000000000116415 470627.5999999999767169 258097.1000000000058208 471960.2999999999883585"
-        #END
-        #PROJECTION
-        #    "init=epsg:28992"
-        #END
-        #transparency 60%
-        #OPACITY 40
+        METADATA
+            "ows_title" "mlc_classification_raster"
+            "ows_extent" "256583.2000000000116415 470627.5999999999767169 258097.1000000000058208 471960.2999999999883585"
+        END
+        PROJECTION
+            "init=epsg:28992"
+        END
         #legend
         CLASS
             NAME "Built-up Area"
@@ -128,6 +120,19 @@ MAP
         CLASS
             NAME "Bareland"
             COLOR 254 254 0
+        END
+    END
+    LAYER
+        NAME "original_raster"
+        TYPE RASTER
+        STATUS ON
+        DATA "original_ortho.tif"
+        METADATA
+            "ows_title" "original_raster"
+            "ows_extent" "256583.2000000000116415 470627.5999999999767169 258097.1000000000058208 471960.2999999999883585"
+        END
+        PROJECTION
+            "init=epsg:28992"
         END
     END
 END #map
