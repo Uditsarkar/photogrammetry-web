@@ -98,10 +98,10 @@
                     <p class="text-center heading">Web architecture</p>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-sm-7 d-flex justify-content-center align-items-center">
+                    <div class="col-md-8 d-flex justify-content-center align-items-center">
                         <img id="web-arch-img" src="images/web_architecture_new.jpg">
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-md-4">
                         <p class="normal-text text-start" style="margin: 10px;"><span class="span-highlight-text">Web services</span></p>
                         <p class="normal-text-small">
                             We use Open Web Services (OWS), e.g. WMS and WFS, which embraces OGC standards. In this project, we only use <mark>WMS (Web Map Service)</mark> 
@@ -175,8 +175,8 @@
                                 <p class="normal-text-small">To produce Photogrammetry product (Land cover classification), we use <mark>ENVI</mark> to do the classification since the tool is taught in this course and we are more familiar with. 
                                     <mark>ArcGIS Pro</mark> was used to re-classify the existing land use classification product and <mark>QGIS</mark> is used to compress rasters and assign CRS to rasters.
                                 </p>
-                                <p class="normal-text-small">The <mark>reason that we use tools separately</mark> even all the tasks can be done within one software is we divide the task to each others and everyone has different preference and proficient in different softwares.
-                                    We also don't see that using different software to perform each tasks will lead to uncertainty in classification product.
+                                <p class="normal-text-small">
+                                    The <mark>reason that we use tools separately</mark> even all the tasks can be done within one software is we divide the task to each others and everyone has different preference and proficient in different softwares.
                                 </p>
                             </div>
                         </div>
@@ -337,12 +337,14 @@
                                             </button>
                                         </div>
                                         <div class="col-sm d-flex mb-3">
-                                            <a href="https://gisedu.itc.utwente.nl/student/s3234223/project/txtfile/roi_separability.txt" target="_blank" class="btn btn-primary mx-1 align-content-center">
+                                            <a href="https://gisedu.itc.utwente.nl/student/s3234223/project/txtfile/roi_separability.txt" rel="noopener noreferrer" target="_blank" class="btn btn-primary mx-1 align-content-center">
                                                 ROI Separability
                                             </a>
                                         </div>
                                     </div>
-                                    
+                                    <p class="img-caption">
+
+                                    </p>
                                     <!-- Modal -->
                                     <div class="modal fade" id="roi-mean-modal" tabindex="-1" aria-labelledby="roi-mean-modal" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -352,7 +354,7 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img src="images/mean.jpg">
+                                                    <img src="images/mean.jpg" class="img-fluid">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -368,7 +370,7 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img src="images/stdev.jpg">
+                                                    <img src="images/stdev.jpg" class="img-fluid">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -384,7 +386,11 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img style="height: 100%; width: 100%;" src="images/nd_viz.jpg">
+                                                    <!--<img style="height: 100%; width: 100%;" src="images/nd_viz.jpg">-->
+                                                    <video width="100%" height="100%" controls>
+                                                        <source src="video/nd_viz.mp4" type="video/mp4">
+                                                        Your browser does not support the video tag.
+                                                    </video>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -443,16 +449,15 @@
                         </div>
                         <div class="row justify-content-center">
                             <figure class="content-fig">
-                                <img src="images/maxlikelihood.png" id="mlc-img">
+                                <img src="images/mlc.png" id="mlc-img">
                                 <figcaption class="img-caption" style="margin-top: 10px;">
-                                    MLC (<a href="https://www.redalyc.org/journal/2570/257059542002/html/" target="_blank" rel="noopener noreferrer" class="src-link">source</a>)
+                                    MLC (<a href="https://link.springer.com/article/10.1007/s40808-021-01258-6" target="_blank" rel="noopener noreferrer" class="src-link">source: Shakya et al., 2021</a>)
                                 </figcaption>
                             </figure>
                         </div>
                         <div class="row justify-content-center">
                             <p class="normal-text-small px-5">
-                                MLC has assumption that data points (pixel value in our case) in each class and each band is normally distributed and calculates the probability of specific pixels belongs to each class.
-                                The pixel will be assigned to the class that has the highest probability value.
+                                MLC has as assumption that the pixel values in each class is <mark>normally distributed</mark>. The pixel will be assigned to the class that has the highest probability value.
                                 From the above figure, the probability of <i><b>x</b></i>&nbsp;&nbsp;belonging to class B is higher than class A.
                             </p>
                             <p class="ref-text text-start mt-3 px-5" style="margin-bottom: 0;">
@@ -460,6 +465,9 @@
                                 <ul class="ref-text text-start px-5">
                                     <li>
                                         https://www.nv5geospatialsoftware.com/docs/MaximumLikelihood.html
+                                    </li>
+                                    <li>
+                                        https://www.redalyc.org/journal/2570/257059542002/html/
                                     </li>
                                     <li>
                                         https://www.redalyc.org/journal/2570/257059542002/html/
@@ -523,6 +531,13 @@
                     <div class="col-sm" id="map1"></div>
                     <div class="col-sm" id="map2"></div>
                 </div>
+                <div class="row justify-content-center">
+                    <p class="img-caption mt-2">
+                        We have done some additional classification product by taking different training sample sizes (~9000 pixels). The accuracy is 69.16%, but it still has less accuracy than other one. 
+                        <br>
+                        <a href="https://gisedu.itc.utwente.nl/student/s3234223/project/images/svm_9000pix.jpg" rel="noopener noreferrer" target="_blank" class="src-link">Click here to see the product</a>
+                    </p>
+                </div>
             </div>
         </div>
         <!-- Accuracy assessment page -->
@@ -562,7 +577,7 @@
                                 <!-- <td colspan="2">Larry the Bird</td> -->
                                 <td>LGN (existing product)</td>
                                 <td>73.14%</td>
-                                <td>(on going calculation)</td>
+                                <td>0.64</td>
                                 <td>66.78%</td>
                             </tr>
                         </tbody>
@@ -723,43 +738,83 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-sm-10">
-                        <p class="text-start normal-text" style="margin-bottom: 0;">Uncertainty in our product</p>
-                        <ul class="normal-text-small" style="line-height: 170%">
-                            <li class="li-highlight">
+                        <p class="text-start normal-text" style="margin-bottom: 0;">Uncertainty in our product classification</p>
+                        <ul class="normal-text-small" style="line-height: 150%;">
+                            <li class="li-highlight mb-1">
                                 <span class="span-highlight-text">Variation of pixel values in class and between classes</span>: According to ROI separability report, some classes has low value of separability value such as Built-up area and Bare land.
                                 Moreover, standard deviation of Built-up area class in red, green, and blue band are high due to heterogeneous rooftops. These can lead to false classification.
                             </li>
-                            <!--<li class="li-highlight">
-                                <span class="span-highlight-text">Limited Knowledge for Bare Land</span>: Spectral variability makes bare land classification challenging (limited ground knowledge).
-                            </li>-->
-                            <li class="li-highlight">
+                            <li class="li-highlight mb-1">
                                 <span class="span-highlight-text">Spectral resolution</span>: We only have RGB band in the image and some objects like water, bare land, and vegetation are hard to distinguish compared to NIR band.
                             </li>
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Shadow Effects</span>: Shadows caused misclassification especially in SVM.
+                            <li class="li-highlight mb-1">
+                                <span class="span-highlight-text">Shadow Effects</span>: Shadows caused misclassification especially in SVM. However, we have tried to classify the shadows into one class to see the result as well.
+                                <a class="src-link" data-bs-toggle="modal" data-bs-target="#shadow-modal">
+                                    Click here to see more details
+                                </a>
                             </li>
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Georeferencing Uncertainty</span>: Unknown accuracy of image georeferencing.
+                            <li class="li-highlight mb-1">
+                                <span class="span-highlight-text">Relief displacement in the original image</span>: There are still some relief displacement in the orthophoto that we used for classification. Relief displacement can make the classification
+                                generate mixed classes in one building.
                             </li>
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Spatial Sampling Bias</span>: Difficult to collect isolated samples (e.g., water) for training/testing.
+                            <li class="li-highlight mb-1">
+                                <span class="span-highlight-text">Spatial sampling area</span>: The accuracy is more rely on where we take the test sample, but we try to be unbias in collecting the test sample.
                             </li>
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Computational Cost</span>: Increasing training data improves accuracy but increases processing time.
+                            <li class="li-highlight mb-1">
+                                <span class="span-highlight-text">Number of training samples</span>: Increasing training data can help improve accuracy, but it also increases the processing time especially in SVM.
                             </li>
                         </ul>
                         <p class="text-start normal-text" style="margin-bottom: 0;">Uncertainty in existing product's accuracy assessment</p>
-                        <ul class="normal-text-small" style="line-height: 170%">
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Reference Data Merging</span>: Merged different classes in existing product.
-                            </li>
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Rural Area Classification</span>: Classified "other rural areas” as "built-up
-                            </li>
-                            <li class="li-highlight">
-                                <span class="span-highlight-text">Mixed Classes in LGN</span>: Mudflats merged into the "vegetation" class.
+                        <ul class="normal-text-small" style="line-height: 150%;">
+                            <li class="li-highlight mb-1">
+                                <span class="span-highlight-text">Reference Data Merging</span>: We merged different classes in existing product based on our understanding such as 
+                                classified "other rural areas” as "built-up" and "mudflats" merged into the "vegetation" class.
                             </li>
                         </ul>
+                    </div>
+                    <div class="modal fade" id="shadow-modal" tabindex="-1" aria-labelledby="shadow-modal" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen" style="width: 100%;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="shadow">Classification by separating "shadow" to one class</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row justify-content-center">
+                                            Land cover classification by using SVM (black represents "shadow" class)
+                                        </div>
+                                        <div class="row justify-content-center mb-3">
+                                            <img src="images/svm_with_shadow.jpg" id="svm-shadow-img">
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-sm">
+                                                <div class="row justify-content-center">
+                                                    ROI mean
+                                                </div>
+                                                <div class="row justify-content-center">
+                                                    <img src="images/mean_shadow.jpg" id="roi-shadow-img">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="row justify-content-center">
+                                                    ROI standard deviation
+                                                </div>
+                                                <div class="row justify-content-center">
+                                                    <img src="images/stdev_shadow.jpg" id="roi-shadow-img">
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-center mt-3">
+                                               <a class="text-center" target="_blank" rel="noopener noreferrer" href="https://gisedu.itc.utwente.nl/student/s3234223/project/txtfile/roi_separability_shadow.txt">Click here to see ROI separability report</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -768,24 +823,19 @@
         <div class="main-content" id="aboutus-page">
             <div class="container-fluid scroll-content">
                 <div class="row justify-content-center">
-                    <div class="col-4 d-flex justify-content-end">
-                        <img id="img1" src="images/magnifier-svgrepo-com.svg">
-                    </div>
-                    <div class="col-6 align-self-center">
-                        <p class="heading"><b>About us</b></p>
-                    </div>
+                    <p class="heading text-center"><b>About us</b></p>
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <p class="normal-text">This website is created by GroupFive as part of Extraction and Dissemination of Geo-information Course.</p>
                 </div>
                 <div class="row justify-content-center">
-                    <p class="normal-text">Pitchaporn Likitpanjamanon</p>
-                </div>
-                <div class="row justify-content-center">
-                    <p class="normal-text">Udit Sarkar</p>
-                </div>
-                <div class="row justify-content-center">
-                    <p class="normal-text">Hamza Nadeem</p>
-                </div>
-                <div class="row justify-content-center">
-                    <p class="normal-text">Deva Geeth Manilal</p>
+                    <p class="normal-text"><mark>GroupFive's members</mark>:</p>
+                    <p class="normal-text">
+                        1. Pitchaporn Likitpanjamanon<br>
+                        2. Udit Sarkar<br>
+                        3. Hamza Nadeem<br>
+                        4. Deva Geeth Manilal
+                    </p>
                 </div>
             </div>
         </div>

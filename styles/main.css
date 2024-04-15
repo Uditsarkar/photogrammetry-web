@@ -48,7 +48,7 @@ a {
     cursor: pointer;
 }
 
-a.src-link:link, a.src-link:visited {
+a.src-link, a.src-link:link, a.src-link:visited {
     color: #6bb8ff;
 }
 
@@ -161,7 +161,7 @@ figure.content-fig {
 
 #svm-img {
     width: 50%;
-    height: 70%;
+    height: 50%;
     /* margin: 10px 10px 10px 10px; */
     align-items: center;
     background-color: white;
@@ -200,6 +200,22 @@ figure.workflow-fig {
 #web-arch-img {
     width: 80%;
     height: 100%;
+}
+
+#roi-shadow-img {
+    width: 60%;
+    height: 100%;
+    /* margin: 10px 10px 10px 10px; */
+    align-items: center;
+    object-fit: cover;
+}
+
+#svm-shadow-img {
+    width: 50%;
+    height: 70%;
+    /* margin: 10px 10px 10px 10px; */
+    align-items: center;
+    object-fit: cover;
 }
 
 #train-map {

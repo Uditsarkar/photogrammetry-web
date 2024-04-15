@@ -110,13 +110,12 @@ function init() {
         view: mapView,
     });
 
-    var layerSwitcher = new ol.control.LayerSwitcher();
-    layerSwitcher.useLegendGraphics = true;
-    map1.addControl(layerSwitcher);
-    
-    var layerSwitcher = new ol.control.LayerSwitcher();
-    layerSwitcher.useLegendGraphics = true;
-    map2.addControl(layerSwitcher);
+    var layerSwitcher1 = new ol.control.LayerSwitcher();
+    layerSwitcher1.useLegendGraphics = true;
+    map1.addControl(layerSwitcher1);
+    var layerSwitcher2 = new ol.control.LayerSwitcher();
+    layerSwitcher2.useLegendGraphics = true;
+    map2.addControl(layerSwitcher2);
 
     // Define a new legend
     var lgnLegend = new ol.legend.Legend({ 
@@ -191,17 +190,21 @@ function init() {
 
     const trianMap = new ol.Map({
         target: 'train-map',
-        layers: [osmLayer],
+        layers: [osmLayer, originalPhoto],
         view: mapView,
     });
+    var layerSwitcher = new ol.control.LayerSwitcher();
+    layerSwitcher.useLegendGraphics = true;
+    trianMap.addControl(layerSwitcher);
     fetchGeoJson(geojsonUrlTrain, trianMap);
     var test = document.getElementById("test-tab");
     test.addEventListener("click", function(){
         const testMap = new ol.Map({
             target: 'test-map',
-            layers: [osmLayer],
+            layers: [osmLayer, originalPhoto],
             view: mapView,
         });
+        testMap.addControl(layerSwitcher);
         fetchGeoJson(geojsonUrlTest, testMap);
     });
     var train = document.getElementById("train-tab");
